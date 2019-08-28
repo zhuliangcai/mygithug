@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度一下vue版</title>
+		<link href="img/ti.ico" rel="shortcut icon" type="image/x-icon"/>
+		<link rel="stylesheet" href="css/bd.css" />
+		<script src="js/vue.js"></script>
+		<script type="text/javascript" src="js/vue-resource.js" ></script>
+		<script>
+			window.onload=function(){
+				//实例化一个vue
+				new Vue({
+					//对象box
+					el: '#vue-bd',
+					//数据
+					data: {
+						sData: [],
+						cnt: '',
+						eBox: false,
+						nowIndex: -1,
+						nowVal: ''
+					},
+					//方法
+					methods: {
+						//jsonp
+						get: function(){
+							this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+								params: {
+									wd: this.cnt
+								},jsonp: 'cb'
+							}).then(function(res){
+							  console.log(res.data)
+								if(res.data.s!=""){
+									this.eBox=true;
+									this.sData=res.data.s.slice(0,4);
+								}else{
+									this.eBox=false;
+									this.sData=[];
+								}
+							},function(){
+								//错误
+							});
+						},
+            down: function(){
+						  this.nowIndex++;
+						  if(this.nowIndex==this.sData.length){
+						    this.nowIndex=-1;
+							}
+						},
+						up: function (){
+							if(this.nowIndex==-1){
+							  this.nowIndex=this.sData.length;
+							}
+              this.nowIndex--;
+
+            },
+						go: function(){
+						  var vl='';
+						  vl=this.nowIndex==-1?this.cnt:this.sData[this.nowIndex];
+              window.open("http://www.baidu.com/s?wd="+vl);
+						}
+					},
+					//监听
+					watch: {
+					  cnt: function(){
+					    this.get();
+					    this.nowIndex=-1;
+					  }
+					}
+				});
+			};
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="head">
+				<div class="nav">
+					<ul>
+						<li><a href="#" class="nav1">糯米</a></li>
+						<li><a href="#" class="nav1">新闻</a></li>
+						<li><a href="#" class="nav1">hao123</a></li>
+						<li><a href="#" class="nav1">地图</a></li>
+						<li><a href="#" class="nav1">视频</a></li>
+						<li><a href="#" class="nav1">贴吧</a></li>
+						<li ><a href="#" class="nav2">登录</a></li>
+						<li ><a href="#" class="nav3">设置</a>
+							<ul class="sz">
+								<span class="sp1">  
+									<span class="sp2"></span>  
+								</span>  
+								<li><a href="">搜索设置</a></li>
+								<li><a href="">高级搜索</a></li>
+								<li><a href="">关闭预测</a></li>
+								<li><a href="">搜索历史</a></li>
+							</ul>
+						</li>
+						<li><div class="nav4" style="display: block;">更多产品
+							<ul class="gd">
+								<li>
+									<a href="https://www.nuomi.com/?cid=002540">
+										<span class="more-a-span back1"></span>
+										糯米
+									</a>
+								</li>
+								<li>
+									<a href="http://music.baidu.com/">
+										<span class="more-a-span back2"></span>
+										音乐
+									</a>
+								</li>
+								<li>
+									<a href="http://image.baidu.com/">
+										<span class="more-a-span back3"></span>
+										图片
+									</a>
+								</li>
+								<li>
+									<a href="https://zhidao.baidu.com/">
+										<span class="more-a-span back4"></span>
+										知道
+									</a>
+								</li>
+								<li>
+									<a href="https://wenku.baidu.com/">
+										<span class="more-a-span back5"></span>
+										文库
+									</a>
+								</li>
+								<li>
+									<a href="http://top.baidu.com/">
+										<span class="more-a-span back6"></span>
+										风云榜
+									</a>
+								</li>
+								<li><a href="https://www.baidu.com/more/">全部产品>></a></li>
+							</ul>						
+						</div>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="vue-bd">
+				<div class="midbar">
+					<div class="tb">
+						<img src="img/bdlogo.png">
+					</div>
+					<div class="search">
+						<input type="text" class="srk" id="srk" v-model="cnt"
+									 v-on:change="get($event)" v-on:keyup.down.prevent="down()"
+									 v-on:keyup.up.prevent="up()"
+									 v-on:keyup.13.prevent="go()"
+						/>
+						<div class="tj" v-on:click="go()">百度一下</div>
+						<div class="kzk" v-bind:class="{dis:eBox}">
+							<ul>
+								<li v-for="(index,item) in sData">
+									<a v-bind:href="'http://www.baidu.com/s?wd='+item"
+										 v-bind:class={grey:index==nowIndex}
+
+									>{{item}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+				</div>
+				<div class="kong">
+
+
+				</div>
+			</div>
+			<div class="footer">
+				<div class="ftcon">
+					<div class="ftcon1">
+						<img src="img/erWeiMa.png" />
+					</div>
+					<div class="ftcon2">
+						<p><a href="https://www.baidu.com/cache/sethelp/help.html">把百度设为主页</a>
+							<a href="http://home.baidu.com/">关于百度</a>
+							<a href="http://ir.baidu.com/phoenix.zhtml?c=188488&p=irol-irhome">About Baidu</a>
+				        <br />
+						©2016 Baidu 
+							<a href="https://www.baidu.com/duty/">使用百度前必读</a> 
+							<a href="http://jianyi.baidu.com/">意见反馈</a>
+							京ICP证030173号<img src="img/gs.png">
+						<br />
+						<img src="img/police.png">京公网安备11000002000001号
+						</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

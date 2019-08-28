@@ -1,0 +1,302 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#wrapper{
+	width: 1366px;
+	height: 600px;
+	margin: 0;
+	padding: 0;
+}
+.head{
+	width: 100%;
+	height: 64px;
+}
+.nav{
+	width: 470px;
+	height: 24px;
+	float: right;
+	margin-top: 19px;
+	}
+.nav ul{
+	margin: 0px;
+	padding: 0px;
+	}
+.nav li{
+	list-style: none;
+	float:left;
+	text-align: center;
+	line-height: 21px;
+	}
+.nav li:hover ul{
+	display: block;
+	position: absolute;
+	animation: more 1s ease-in-out;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes more{
+	from{opacity: 0;}
+	to{opacity: 1;}
+}
+.nav li ul{
+	position: absolute;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	display: none;
+	opacity: 0;
+}
+.nav li ul li{
+	float: none;
+	display: block;
+	color: black;
+	font-family: arial;
+	font-size: 12px;
+}
+.nav1{
+	color: black;
+	font-family: arial;
+	font-size: 13px;
+	font-weight: bolder;
+	width: 26px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.nav2{
+	color: black;
+	font-family: arial;
+	font-size: 13px;
+	width: 26px;
+	padding-left: 12px;
+	padding-right: 0px;
+}
+.nav3{
+	color: black;
+	font-family: arial;
+	font-size: 13px;
+	width: 26px;
+	padding-left: 19px;
+	padding-right: 20px;
+}
+.nav4{
+	color: white;
+	font-family: arial;
+	font-size: 13px;
+	background-color: #1E90FF;
+	text-decoration: none;
+	width: 61px;
+	height: 24px;
+	margin-left: 0px;
+	}
+	.nav4:hover{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 55px;
+		min-height: 590px;
+		padding: 20px 15px 10px !important;
+		background: #F9F9F9;
+		color: black !important;
+	}
+.nav a:hover{
+	color: blue;
+}
+.sz{
+	border: 1px solid #CCC;
+}
+.sp1,.sp2  
+{  
+  display:block;  
+  height:0px;  
+  width:0px;  
+  position:absolute;  
+  font-size:0;  
+  line-height:0;  
+}  
+.sp1  
+{  
+  top:-6px;    /* 它的绝对值加上span的边框宽度等于div边框宽度的5倍 */  
+  left:30px;   /* 它来确定尖角的位置 */  
+  border-top:0px;  
+  border-bottom:6px solid #CCC;  /* 注意颜色的变化 */  
+  border-right:6px solid white;  
+  border-left:6px solid white;  
+}  
+.sp2  
+{  
+  top:2px;  /* 是自身边框宽度的2倍 */  
+  left:-5px; /* 是自身边框宽度的-1倍  */  
+  border-top:0px;  
+  border-bottom:5px solid white;  
+  border-right:5px solid #CCC;  
+  border-left:5px solid #CCC;  
+}
+.sz li{
+	width: 65px;
+}
+.sz a{
+	text-decoration: none;
+	color: black;
+	line-height: 25px;
+	width: 65px;
+}
+.sz a:hover{
+	background-color: dodgerblue;
+	color: white;
+	display: block;
+}
+.gd{
+	margin: 0 auto;
+}
+.gd li{
+	padding: 10px 0;
+	border-top: 1px solid #F0F0F0;
+	clear: both;
+	overflow: hidden;
+}
+.gd li a{
+	color: #666
+}
+.more-a-span{
+	display: block;
+	width: 36px;
+	height: 36px;
+	margin: 0 auto;
+}
+.back1{
+	background: url(../img/bdbri_icons_2e35e84b.png) no-repeat 0 0;
+}
+.back2{
+	background: url(../img/bdbri_icons_2e35e84b.png) no-repeat -72px 0;
+}
+.back3{
+	background: url(../img/bdbri_icons_2e35e84b.png) no-repeat -112px 0;
+}
+.back4{
+	background: url(../img/bdbri_icons_2e35e84b.png) no-repeat -36px 0;
+}
+.back5{
+	background: url(../img/bdbri_icons_2e35e84b.png) no-repeat -144px 0;
+}
+.back6{
+	background: url(../img/bdbri_icons_2e35e84b.png) no-repeat -180px 0;
+}
+.midbar{
+	width: 100%;
+	height: 191px;
+}
+.tb{
+	width: 100%;
+	height: 132px;
+	text-align: center;
+	padding-top: 0px;
+	margin-top: 0px;
+	padding-bottom: 10px;
+}
+.search{
+	position: relative;
+	width: 540px;
+	height: 37px;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+.srk{
+	float: left;
+	width: 428px;
+	height: 35px;
+	padding: 0 5px;
+	font-size: 13px;
+	border:1px solid;
+	border-color: rgb(184,184,184);
+}
+.srk:hover{
+	border-color: gray;
+}
+.tj{
+	float: left;
+	width:100px; 
+	height:38px;
+	line-height: 38px;
+	text-align: center;
+	font-size: 15px;
+	color: white;
+	background-color: dodgerblue;
+}
+.tj:hover{
+	background-color: #4169E1;
+}
+.kzk{
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	display: none;
+	width: 438px;
+	border: 1px solid gainsboro;
+}
+.dis{
+	display: block !important;
+}
+.kzk ul li{
+	width: 438px;
+	height: 35px;
+	text-indent: 10px;
+	line-height: 35px;
+	list-style-type:none ;
+}
+.kzk li a{
+	display: block;
+	color: #000;
+	text-decoration: none;
+}
+.kong{
+	width: 100%;
+	height:191px;
+}
+.footer{
+	width: 100%;
+	height:100px;
+	margin-top: 60px;
+}
+.ftcon{
+	width: 100%;
+	height: 70px;
+	}
+.ftcon1{
+	width: 277px;
+	height: 70px;
+	float: left;
+	margin-left: 360px;
+	margin-top: 30px;
+	padding: 0px;
+}
+.ftcon2{
+	width: 330px;
+	height: 70px;
+	float: right;
+	margin-right: 360px;
+	margin-top: 20px;
+	color: darkgray;
+	font-size: 12px;
+	font-family: arial;
+	padding: 0px;
+}	
+.ftcon2 a{
+	clear: both;
+	font-size: 12px;
+	font-family: arial;
+	color: gray;
+}
+
+/*选中*/
+.grey {background: rgba(203,203,203,.5)!important; }
+.vue{
+	position: fixed;
+	right: 0;
+	top: 30%;
+	display: block;
+	font-size: 14px;
+	color: #333;
+	text-decoration: none;
+	border:1px solid #67C2EF;
+	border-radius: 5px;
+}
